@@ -1,5 +1,6 @@
 "use client";
 import BarChartRateCost from "@/components/charts/BarChartRateCost";
+import { WaterBottleRadial } from "@/components/charts/bottlesDrankChart";
 import { PhoneChargeRadial } from "@/components/charts/PhonesChargedGraph";
 import { useState } from "react";
 
@@ -10,7 +11,7 @@ export default function FootprintPage() {
   const [result, setResult] = useState<string | null>(null);
   const [warning, setWarning] = useState<string | null>(null);
   const [resultNum, setNum] = useState<number | null>(null);
-  const[water, setWater] = useState<number | null>(null);
+  const[water, setWater] = useState<number>(0);
   const[bulbs, setBulbs] = useState<number | null>(null);
   const queries = parseInt(queriesPerDay, 10);
   const watts_per_query = 2.9;
@@ -50,7 +51,7 @@ export default function FootprintPage() {
     const estimatedFootprint = queries * 4 * baseMultiplier; // 4wH per query per day
     //setting bulbs being lighted up
     if (estimatedFootprint!=null){
-      let bulb_wH: number = 64;
+      let bulb_wH: number = 64/8;
       let water_mL: number = 12.4
       setBulbs(estimatedFootprint/bulb_wH);
       setWater(estimatedFootprint*water_mL);
@@ -120,25 +121,31 @@ export default function FootprintPage() {
     <div className="flex justify-center items-center gap-8 text-white text-lg">
       <div className="flex flex-col items-center">
         <span className="text-yellow-400 text-4xl">⚡</span>
-        <span>{resultNum!=null ? resultNum*30.4/1000 : 0} kWh/month</span>
+        <span>{resultNum!=null ? resultNum/1000 : 0} kWh/day</span>
       </div>
 
       <span className="text-3xl">≈</span>
 
       <div className="flex flex-col items-center">
         <span className="text-yellow-300 text-4xl">💡</span>
-        <span>{bulbs} LED lightbulbs for a day </span>
+        <span>{bulbs} LED lightbulb hours </span>
       </div>
 
-      <span className="text-3xl">≈</span>
+      <span className="text-3xl">&</span>
 
       <div className="flex flex-col items-center">
         <span className="text-blue-400 text-4xl">💧</span>
-        <span>{water!=null ? water/1000 : 0} liters</span>
+        <span>{water!=null ? Math.round(((water/1000)*33.8)) : 0} oz</span>
       </div>
     </div>
     
-    {resultNum!=null ? <PhoneChargeRadial wH={resultNum} /> : null}
+    {resultNum != null && (
+  <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-4">
+    <PhoneChargeRadial wH={resultNum} />
+    <WaterBottleRadial waterNum={((water/1000)*33.8)} />
+  </div>
+)}
+
   </div>
 )}
     </div>

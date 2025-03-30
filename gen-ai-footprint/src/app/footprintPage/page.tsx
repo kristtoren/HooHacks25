@@ -2,7 +2,7 @@
 import BarChartRateCost from "@/components/charts/BarChartRateCost";
 import { WaterBottleRadial } from "@/components/charts/bottlesDrankChart";
 import { PhoneChargeRadial } from "@/components/charts/PhonesChargedGraph";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function FootprintPage() {
   const [queriesPerDay, setQueriesPerDay] = useState("");
@@ -16,6 +16,11 @@ export default function FootprintPage() {
   const queries = parseInt(queriesPerDay, 10);
   const watts_per_query = 2.9;
   const mliters_per_query = 10.6;
+
+    // Scroll to top when the component is loaded
+    useEffect(() => {
+      window.scrollTo(0, 0);  // Scroll to the top of the page
+    }, []);
 
   //calculating footprint
   const calculateFootprint = () => {

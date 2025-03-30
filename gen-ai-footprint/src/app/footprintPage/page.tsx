@@ -22,7 +22,7 @@ export default function FootprintPage() {
   
     const queries = parseInt(queriesPerDay, 10);
     let baseMultiplier = 1;
-    let electricityMultiplier = 1;
+    //let electricityMultiplier = 1;
 
     // Assign multipliers based on service type
     if (serviceType.includes("Image")) baseMultiplier = 5;
@@ -32,16 +32,16 @@ export default function FootprintPage() {
     // Adjust for complexity
     if (complexity.includes("Medium")) {
       baseMultiplier *= 1.5;
-      electricityMultiplier = 2;
+      //electricityMultiplier = 2;
       
     }
     else if (complexity.includes("Long")) {
       baseMultiplier *= 2;
-      electricityMultiplier = 3;
+      //electricityMultiplier = 3;
     }
     else if (complexity.includes("Short")) {
       baseMultiplier *= 1; //nothing changes
-      electricityMultiplier *= 1.5;
+      //electricityMultiplier *= 1.5;
     }
     setWarning(null);
     const estimatedFootprint = queries * baseMultiplier*10;
@@ -81,7 +81,6 @@ export default function FootprintPage() {
         >
           <option>Text generation (ChatGPT, Claude, Perplexity, etc.)</option>
           <option>Image generation (DALL-E, MidJourney, etc.)</option>
-          <option>Voice/ Audio generation (Murf, ElevenLabs, etc.)</option>
         </select>
       </div>
 

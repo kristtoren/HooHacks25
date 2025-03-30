@@ -1,0 +1,10 @@
+##Source 1
+###Landing page main fact
+https://tinyml.substack.com/p/the-carbon-impact-of-large-language
+
+##Source 2
+###Landing page 'The Energy & Water Footprint of AI' facts
+https://www.businessenergyuk.com/knowledge-hub/chatgpt-energy-consumption-visualized/
+
+##Source 3
+chatgpt.com

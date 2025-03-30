@@ -1,5 +1,5 @@
-import { LandingPageChart } from "@/components/charts/landingPageChart";
 import Link from "next/link";
+import { LandingPageChart } from "@/components/charts/landingPageChart";
 
 export default function Home() {
   return (
@@ -43,15 +43,14 @@ export default function Home() {
           
           <p className="text-lg mb-6">
             In one day, ChatGPT consumes an estimated
-            <span className="text-indigo-400 font-bold"> 39.16 million gallons</span> of water —
+            <span className="text-indigo-400 font-bold"> 39.16 million gallons</span> of water — 
             enough to fill <span className="text-teal-400 font-bold">978,000 bathtubs!</span>
           </p>
         </div>
         
-        <Link href="/footprintPage">
-          <button className="mt-10 mb-5 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-md shadow-md text-lg">
+        {/* Button to navigate using Link */}
+        <Link href="/footprintPage" className="mt-10 mb-5 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-md shadow-md text-lg">
             Calculate Your Footprint
-          </button>
         </Link>
       </div>
     </div>

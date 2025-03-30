@@ -133,6 +133,7 @@ export default function FootprintPage() {
         <span>{water} gallons</span>
       </div>
     </div>
+    
   </div>
 )}
     </div>

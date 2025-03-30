@@ -43,6 +43,58 @@ const sources = [
     title: "ChatGPT weekly active users",
     url: "https://www.demandsage.com/chatgpt-statistics/",
   },
+  {
+    title: "ChatGPT",
+    url: "https://chatgpt.com",
+  },
+  {
+    title: "U.S. home energy usage",
+    url: "https://www.energysage.com/electricity/house-watts/",
+  },
+  {
+    title: "Commercial building energy consumption",
+    url: "https://www.eia.gov/consumption/commercial/data/2012/c&e/cfm/pba4.php",
+  },
+  {
+    title: "Bitcoin energy consumption",
+    url: "https://buybitcoinworldwide.com/bitcoin-mining-statistics/",
+  },
+  {
+    title: "AI Image generation",
+    url: "https://www.technologyreview.com/2023/12/01/1084189/making-an-image-with-generative-ai-uses-as-much-energy-as-charging-your-phone/",
+  },
+  {
+    title: "Fridge energy use",
+    url: "https://bkvenergy.com/blog/how-much-electricity-does-refrigerator-use/#:~:text=Refrigerators%20use%20between%20300%2D800,%24100%2D%24150%20per%20year.",
+  },
+  {
+    title: "ISS energy use",
+    url: "https://www.edn.com/international-space-station-iss-power-system/#:~:text=The%2075%20to%2090%20kilowatts,than%2040%20homes%20on%20Earth.",
+  },
+  {
+    title: "Sydney Opera House energy usage",
+    url: "https://www.mane.co.uk/resources/blog/how-much-energy-do-these-world-famous-buildings-use/",
+  },
+  {
+    title: "ACADEMIC: From Words to Watts: Benchmarking the Energy Costs of Large Language Model Inference",
+    url: "https://arxiv.org/abs/2304.03271",
+  },
+  {
+    title: "ACADEMIC: Power Hungry Processing: ⚡ Watts ⚡ Driving the Cost of AI Deployment?",
+    url: "https://arxiv.org/abs/2304.03271", // Placeholder (same as above if no new URL)
+  },
+  {
+    title: "Making AI less thirsty",
+    url: "https://arxiv.org/abs/2304.03271",
+  },
+  {
+    title: "How much energy can AI use? - Washington Post (Archived)",
+    url: "https://archive.is/v83Hl",
+  },
+  {
+    title: "Tailwind CSS cheat sheet",
+    url: "https://nerdcave.com/tailwind-cheat-sheet",
+  },
 ];
 
 export default function SourcesPage() {

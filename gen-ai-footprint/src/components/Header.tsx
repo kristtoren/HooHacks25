@@ -39,7 +39,7 @@ export default function Header() {
       </h1>
 
       <nav className="flex justify-center gap-8 text-lg font-space font-bold pt-5">
-        <Link href="/" className="text-blue-400 hover:text-cyan-200">
+        <Link href="/usDailyPage" className="text-blue-400 hover:text-cyan-200">
           Daily US Footprint
         </Link>
         <Link href="/footprintPage" className="text-blue-400 hover:text-cyan-200">

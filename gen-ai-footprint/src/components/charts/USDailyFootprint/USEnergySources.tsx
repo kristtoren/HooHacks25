@@ -1,78 +1,86 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
-import { LabelList, Pie, PieChart } from "recharts"
+import { Bar, BarChart, CartesianGrid, Cell, LabelList, XAxis, YAxis } from "recharts"
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+
 const chartData = [
-  { source: "Petroleum", percent: 38, fill: "var(--color-petroleum)" },
-  { source: "Natural Gas", percent: 36, fill: "var(--color-natural-gas)" },
-  { source: "Nuclear Electric Power", percent: 9, fill: "var(--color-nuclear)" },
-  { source: "Coal", percent: 9, fill: "var(--color-coal)" },
-  { source: "Renewable Energy", percent: 9, fill: "var(--color-renewable)" },
+  { source: "Petroleum", percent: 38 },
+  { source: "Natural Gas", percent: 36 },
+  { source: "Nuclear Power", percent: 9 },
+  { source: "Coal", percent: 9 },
+  { source: "Renewable Energy", percent: 9 },
+]
+
+// Colors that match real-life appearance
+const COLORS = [
+  "#3B2E1E", // Petroleum - dark brown
+  "#60A5FA", // Natural Gas - blue
+  "#38BDF8", // Nuclear - light blue
+  "#1F2937", // Coal - dark gray
+  "#34D399", // Renewable - green
 ]
 
 const chartConfig = {
   percent: {
     label: "Percent",
+    color: "hsl(var(--chart-1))",
   },
-  petroleum: {
-    label: "Petroleum",
-    color: "#2C3E50",
-  },
-  "natural-gas": {
-    label: "Natural Gas",
-    color: "#3498DB",
-  },
-  nuclear: {
-    label: "Nuclear Electric Power",
-    color: "#9B59B6",
-  },
-  coal: {
-    label: "Coal",
-    color: "#34495E",
-  },
-  renewable: {
-    label: "Renewable Energy",
-    color: "#27AE60",
+  label: {
+    color: "hsl(var(--background))",
   },
 } satisfies ChartConfig
 
 export function EnergySourcesPie() {
   return (
-    <Card className="flex flex-col w-150">
-      <CardHeader className="items-center pb-0">
+    <Card className="w-150">
+      <CardHeader>
         <CardTitle>U.S. Energy Consumption by Source</CardTitle>
-        <CardDescription>Energy Source Distribution</CardDescription>
+        <CardDescription>2023 Data</CardDescription>
       </CardHeader>
-      <CardContent className="flex-1 pb-0">
-        <ChartContainer
-          config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px] [&_.recharts-text]:fill-background"
-        >
-          <PieChart>
-            <ChartTooltip content={<ChartTooltipContent nameKey="percent" hideLabel />} />
-            <Pie data={chartData} dataKey="percent">
+      <CardContent>
+        <ChartContainer config={chartConfig}>
+          <BarChart
+            accessibilityLayer
+            data={chartData}
+            layout="vertical"
+            margin={{
+              right: 16,
+            }}
+          >
+            <CartesianGrid horizontal={false} />
+            <YAxis dataKey="source" type="category" tickLine={false} tickMargin={10} axisLine={false} hide />
+            <XAxis dataKey="percent" type="number" hide />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
+            <Bar dataKey="percent" layout="vertical" radius={4}>
+              {chartData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              ))}
               <LabelList
                 dataKey="source"
-                className="fill-background"
-                stroke="none"
+                position="insideLeft"
+                offset={8}
+                className="fill-white"
                 fontSize={12}
-                formatter={(value: keyof typeof chartConfig) => chartConfig[value]?.label}
               />
-            </Pie>
-          </PieChart>
+              <LabelList
+                dataKey="percent"
+                position="right"
+                offset={8}
+                className="fill-white"
+                fontSize={12}
+                formatter={(value: number) => `${value}%`}
+              />
+            </Bar>
+          </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium leading-none">
-          Renewable energy accounts for only 9% of consumption <TrendingUp className="h-4 w-4" />
+      <CardFooter className="flex-col items-start gap-2 text-sm">
+        <div className="flex gap-2 font-medium leading-none">
+          Petroleum and Natural Gas account for 74% of energy consumption
         </div>
-        <div className="leading-none text-muted-foreground">Data from <a target="_blank"
-                        rel="noreferrer"
-                        href="https://www.eia.gov/energyexplained/us-energy-facts/">
-                            eia.gov</a></div>
+        <div className="leading-none text-muted-foreground">Data from U.S. Energy Information Administration</div>
       </CardFooter>
     </Card>
   )

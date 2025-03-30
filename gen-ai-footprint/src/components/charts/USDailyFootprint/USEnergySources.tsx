@@ -69,7 +69,10 @@ export function EnergySourcesPie() {
         <div className="flex items-center gap-2 font-medium leading-none">
           Renewable energy accounts for only 9% of consumption <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">Showing U.S. energy consumption by source</div>
+        <div className="leading-none text-muted-foreground">Data from <a target="_blank"
+                        rel="noreferrer"
+                        href="https://www.eia.gov/energyexplained/us-energy-facts/">
+                            eia.gov</a></div>
       </CardFooter>
     </Card>
   )

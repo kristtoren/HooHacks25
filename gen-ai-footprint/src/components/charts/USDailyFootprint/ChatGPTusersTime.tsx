@@ -26,6 +26,7 @@ const chartConfig = {
 
 export function ChatGPTWeeklyUsersLine() {
   return (
+
     <Card className="w-150">
       <CardHeader>
         <CardTitle>ChatGPT Weekly Active Users (Millions)</CardTitle>
@@ -91,7 +92,7 @@ export function ChatGPTWeeklyUsersLine() {
         <div className="leading-none text-muted-foreground">Data from <a target="_blank"
                         rel="noreferrer"
                         href="https://www.demandsage.com/chatgpt-statistics/">
-                            demandsage.come</a></div>
+                            demandsage.com</a></div>
       </CardFooter>
     </Card>
   )

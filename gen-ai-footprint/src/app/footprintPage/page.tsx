@@ -143,6 +143,7 @@ export default function FootprintPage() {
   <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-4">
     <PhoneChargeRadial wH={resultNum} />
     <WaterBottleRadial waterNum={((water/1000)*33.8)} />
+    <BarChartRateCost rate={resultNum} />
   </div>
 )}
 

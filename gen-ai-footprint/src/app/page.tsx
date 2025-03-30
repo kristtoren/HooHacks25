@@ -1,13 +1,20 @@
+import { LandingPageChart } from "@/components/charts/landingPageChart";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
-      <div className="flex flex-row items-start justify-start min-h-screen p-6 text-white bg-gray-900 mb-[-200px]">
-        <div className="flex flex-col items-start justify-start min-h-screen p-6 text-white bg-gray-900">
-          <h2 className="text-7xl font-extrabold text-center text-blue-500 animate-fade-in mb-6 w-1/2 mt-[-30px]">
+    <div className="flex flex-col">
+      <div className="flex flex-row items-start flex-wrap justify-between min-h-screen p-6 text-white bg-gray-900 mb-[-200px]">
+        {/* Left side (text section) */}
+        <div className="flex flex-col items-start justify-start min-h-screen p-6 text-white bg-gray-900 w-1/2 min-w-24">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-center text-blue-500 animate-fade-in mb-6 mt-[-30px]">
             Training GPT-4 for 100 days required an estimated 28,800,000 kWh of energy.
           </h2>
+        </div>
+        
+        {/* Right side (chart section) */}
+        <div className="flex flex-col items-start justify-start min-h-screen p-6 w-1/2 mt-[-30px] min-w-24">
+          <LandingPageChart />
         </div>
       </div>
       <div className="flex flex-col items-center justify-end p-6 text-white bg-gray-900 mt-20">

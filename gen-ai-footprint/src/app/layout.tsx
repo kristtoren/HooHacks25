@@ -31,17 +31,15 @@ export default function RootLayout({
       >
         <header className="sticky top-0 w-full bg-gray-900 p-4 shadow-md z-10">
         <h1 
-        className="text-4xl mb-4 text-center font-extrabold font-mono animate-fade-in">
-      <Link href="/" className="text-white">
-      your
-  <span className="text-blue-400">AI</span>
-  footprint.com
-      </Link>
-</h1>
+          className="text-4xl mb-4 text-center font-extrabold font-mono animate-fade-in">
+          <Link href="/" className="text-white">
+            your<span className="text-blue-400">AI</span>footprint.com
+          </Link>
+        </h1>
 
         
          <div className="align-center">
-            <nav className="flex justify-center space-x-50 text-blue-400 text-lg font-medium">
+            <nav className="flex justify-center space-x-[20%] text-blue-400 text-lg font-medium">
             <a href="#" className="hover:text-cyan-200">Daily US Footprint</a>
             <a href="/footprintPage" className="hover:text-cyan-200">Calculate your Footprint</a>
             <a href="#" className="hover:text-cyan-200">Resources</a>

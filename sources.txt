@@ -1,10 +1,72 @@
-##Source 1
-###Landing page main fact
-https://tinyml.substack.com/p/the-carbon-impact-of-large-language
+Resources:
 
-##Source 2
-###Landing page 'The Energy & Water Footprint of AI' facts
+How much energy ChatGPT consumes:
 https://www.businessenergyuk.com/knowledge-hub/chatgpt-energy-consumption-visualized/
 
-##Source 3
+How much water ChatGPT consumes:
+https://www.thetimes.com/uk/technology-uk/article/thirsty-chatgpt-uses-four-times-more-water-than-previously-thought-bc0pqswdr
+
+Gen Ai consumption of resources:
+https://www.polytechnique-insights.com/en/columns/energy/generative-ai-energy-consumption-soars/
+
+How Much Energy Do Google Search and ChatGPT Use?
+https://www.rwdigital.ca/blog/how-much-energy-do-google-search-and-chatgpt-use/#:~:text=While%20Google's%20energy%20use%20for,for%20a%20single%20Google%20search.
+
+How much energy does ChatGPT use?
+https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use
+Spreadsheets:
+https://docs.google.com/spreadsheets/d/1Xe1WXNaZ0IZuuRAJP62xf_ufmwUhgRhtp446bTHnUOM/edit?gid=505480858#gid=505480858
+
+Number of google searches per day:
+https://explodingtopics.com/blog/google-searches-per-day
+
+ChatGPT March data:
+https://www.demandsage.com/chatgpt-statistics/
+
+C02 emission data and electricity:
+https://tinyml.substack.com/p/the-carbon-impact-of-large-language
+
+ChatGPT weekly active users
+https://www.demandsage.com/chatgpt-statistics/
+
+ChatGPT:
 chatgpt.com
+
+U.S. home energy usage
+https://www.energysage.com/electricity/house-watts/
+
+Commercial building energy consumption:
+https://www.eia.gov/consumption/commercial/data/2012/c&e/cfm/pba4.php
+
+Bitcoin energy consumption
+https://buybitcoinworldwide.com/bitcoin-mining-statistics/
+
+AI Image generation
+https://www.technologyreview.com/2023/12/01/1084189/making-an-image-with-generative-ai-uses-as-much-energy-as-charging-your-phone/ 
+
+Fridge energy use
+https://bkvenergy.com/blog/how-much-electricity-does-refrigerator-use/#:~:text=Refrigerators%20use%20between%20300%2D800,%24100%2D%24150%20per%20year.
+
+ISS energy use
+https://www.edn.com/international-space-station-iss-power-system/#:~:text=The%2075%20to%2090%20kilowatts,than%2040%20homes%20on%20Earth.
+
+Sydney Opera House energy usage
+https://www.mane.co.uk/resources/blog/how-much-energy-do-these-world-famous-buildings-use/
+
+ACADEMIC:
+(These + the epoch offer difference estimates)
+From Words to Watts: Benchmarking the Energy Costs of Large Language Model Inference
+Power Hungry Processing: ⚡ Watts ⚡ Driving the Cost of AI Deployment? 
+Used to show that Image generation takes 6x the energy of text generation
+
+NUMBERS AUSTIN USED TO CALCULATE:
+Making AI less thirsty:
+https://arxiv.org/abs/2304.03271
+
+How much energy can AI use? Breaking down the toll of each ChatGPT query - The Washington Post 
+https://archive.is/v83Hl <<
+
+Tailwind css cheat sheet
+https://nerdcave.com/tailwind-cheat-sheet
+
+

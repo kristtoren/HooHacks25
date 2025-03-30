@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,23 +25,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-gray-900">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <header className="sticky top-0 w-full bg-gray-900 p-4 shadow-md z-10">
-        <h1 className="text-4xl mb-4 text-center">
-  <Link href="/" className="hover:underline text-white">
-    yourAIfootprint.com
-  </Link>
+        <h1 
+        className="text-4xl mb-4 text-center font-extrabold font-mono animate-fade-in">
+      <Link href="/" className="text-white">
+      your
+  <span className="text-blue-400">AI</span>
+  footprint.com
+      </Link>
 </h1>
 
         
          <div className="align-center">
-            <nav className="flex justify-center gap-6 text-blue-400">
-            <a href="#" className="hover:text-blue-300">Daily US Footprint</a>
-            <a href="/footprintPage" className="hover:text-blue-300">Calculate your Footprint</a>
-            <a href="#" className="hover:text-blue-300">Resources</a>
+            <nav className="flex justify-center space-x-50 text-blue-400 text-lg font-medium">
+            <a href="#" className="hover:text-cyan-200">Daily US Footprint</a>
+            <a href="/footprintPage" className="hover:text-cyan-200">Calculate your Footprint</a>
+            <a href="#" className="hover:text-cyan-200">Resources</a>
           </nav>
          </div>
           

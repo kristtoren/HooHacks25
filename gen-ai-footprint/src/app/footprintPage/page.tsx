@@ -137,8 +137,10 @@ export default function FootprintPage() {
         <span>{water!=null ? water/1000 : 0} liters</span>
       </div>
     </div>
-    
+    <div className="flex flex-row">
     {resultNum!=null ? <PhoneChargeRadial wH={resultNum} /> : null}
+    {resultNum!=null ? <BarChartRateCost rate={resultNum} /> : null}
+    </div>
   </div>
 )}
     </div>

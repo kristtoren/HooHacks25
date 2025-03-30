@@ -4,7 +4,7 @@ import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import { ChartConfig, ChartContainer} from "@/components/ui/chart";
 import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { ChartLegend, ChartLegendContent } from '@/components/ui/chart'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle  } from '@/components/ui/card'
 
 
 /**
@@ -15,7 +15,7 @@ interface Props {
     rate: number;
 }
 export default function BarChartRateCost({rate} : Props) {
-    let averagePrompts: number = 5;
+    let averagePrompts: number = 70/4;
 
     const chartData = [
         { user: "You", energy: 4*rate, water: 12.4*rate}, //energy is in WH and water is in mL
@@ -23,9 +23,11 @@ export default function BarChartRateCost({rate} : Props) {
     ]
 
     return(
-        <Card className="w-150">
-            <h1>Daily energy/water usage</h1>
-            <div>for yourself, the average ChatGPT user</div>
+        <Card className="flex flex-col w-2/3">
+        <CardHeader className="items-center pb-0">
+        <CardTitle>Daily resource consumption</CardTitle>
+        <CardDescription>for yourself and the average ChatGPT user</CardDescription>
+      </CardHeader>
         <CardContent>
         <ChartContainer config={chartConfig} className="min-h-[100px] w-full">
             <BarChart accessibilityLayer data={chartData}>
@@ -44,9 +46,9 @@ export default function BarChartRateCost({rate} : Props) {
             </BarChart>
         </ChartContainer>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex flex-col">
         <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month
+          you consume {(rate/averagePrompts * 100).toFixed(1)}% as much energy as the average ChatGPT user
         </div>
         <div className="leading-none text-muted-foreground">Your wH and mL of water used</div>
       

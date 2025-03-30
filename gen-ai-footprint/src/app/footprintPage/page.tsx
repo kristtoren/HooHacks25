@@ -1,4 +1,6 @@
 "use client";
+import BarChartRateCost from "@/components/charts/BarChartRateCost";
+import { PhoneChargeRadial } from "@/components/charts/PhonesChargedGraph";
 import { useState } from "react";
 
 export default function FootprintPage() {
@@ -8,9 +10,11 @@ export default function FootprintPage() {
   const [result, setResult] = useState<string | null>(null);
   const [warning, setWarning] = useState<string | null>(null);
   const [resultNum, setNum] = useState<number | null>(null);
-  const [electricity, setkwh] = useState<number | null>(null);
   const[water, setWater] = useState<number | null>(null);
   const[bulbs, setBulbs] = useState<number | null>(null);
+  const queries = parseInt(queriesPerDay, 10);
+  const watts_per_query = 2.9;
+  const mliters_per_query = 10.6;
 
   //calculating footprint
   const calculateFootprint = () => {
@@ -20,14 +24,13 @@ export default function FootprintPage() {
       return;
     }
   
-    const queries = parseInt(queriesPerDay, 10);
+    
     let baseMultiplier = 1;
     //let electricityMultiplier = 1;
 
     // Assign multipliers based on service type
-    if (serviceType.includes("Image")) baseMultiplier = 5;
-    else if (serviceType.includes("Voice") || serviceType.includes("Audio")) baseMultiplier = 4;
-    else if (serviceType.includes("Text")) baseMultiplier = 2;
+    if (serviceType.includes("Image")) baseMultiplier = 60;
+    else if (serviceType.includes("Text")) baseMultiplier = 1;
 
     // Adjust for complexity
     if (complexity.includes("Medium")) {
@@ -44,18 +47,20 @@ export default function FootprintPage() {
       //electricityMultiplier *= 1.5;
     }
     setWarning(null);
-    const estimatedFootprint = queries * baseMultiplier*10;
+    const estimatedFootprint = queries * 4 * baseMultiplier; // 4wH per query per day
     //setting bulbs being lighted up
     if (estimatedFootprint!=null){
-      setBulbs(estimatedFootprint*25);
-    } else {setBulbs(0);}
-    //setting water
-    if (estimatedFootprint!=null){
-      setWater(estimatedFootprint*15000);
-    } else {setWater(0);}
+      let bulb_wH: number = 64;
+      let water_mL: number = 12.4
+      setBulbs(estimatedFootprint/bulb_wH);
+      setWater(estimatedFootprint*water_mL);
+    } else {
+      setBulbs(0);
+      setWater(0);}
+
     //figure out electricity
     setNum(estimatedFootprint);
-    setResult(`Your consumption uses:`);
+    setResult(`Your consumption uses: `);
     //setResult(`Your consumption uses ${estimatedFootprint.toFixed(2)} units.`);
   };
 
@@ -115,24 +120,25 @@ export default function FootprintPage() {
     <div className="flex justify-center items-center gap-8 text-white text-lg">
       <div className="flex flex-col items-center">
         <span className="text-yellow-400 text-4xl">⚡</span>
-        <span>{resultNum} kWh/month</span>
+        <span>{resultNum!=null ? resultNum*30.4/1000 : 0} kWh/month</span>
       </div>
 
       <span className="text-3xl">≈</span>
 
       <div className="flex flex-col items-center">
         <span className="text-yellow-300 text-4xl">💡</span>
-        <span>{bulbs} lightbulb hours</span>
+        <span>{bulbs} LED lightbulbs for a day </span>
       </div>
 
       <span className="text-3xl">≈</span>
 
       <div className="flex flex-col items-center">
         <span className="text-blue-400 text-4xl">💧</span>
-        <span>{water} gallons</span>
+        <span>{water!=null ? water/1000 : 0} liters</span>
       </div>
     </div>
     
+    {resultNum!=null ? <PhoneChargeRadial wH={resultNum} /> : null}
   </div>
 )}
     </div>
